@@ -39,6 +39,7 @@ GEM
     arel (6.0.3)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap_sb_admin_base_v2 (0.1.1)
     builder (3.2.2)
     byebug (8.2.2)
     coffee-rails (4.1.1)
@@ -143,6 +144,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap_sb_admin_base_v2
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)

@@ -1,0 +1,1 @@
+This bootstrap experiment is to practice integrating a full bootstrap admin theme into Rails.
