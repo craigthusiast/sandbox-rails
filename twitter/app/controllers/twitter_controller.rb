@@ -2,14 +2,18 @@ class TwitterController < ApplicationController
   before_filter :authenticate_user!
 
   def generate_twitter_oauth_url
-  	oauth_callback = "https://sandbox-rails-craigthusiast.c9users.io/oauth_account"
+    # oauth_callback = "https://sandbox-rails-craigthusiast.c9users.io/oauth_account"  #This was in the tutorial, but it doesn't work.
+  	@callback_url = "https://sandbox-rails-craigthusiast.c9users.io/oauth/callback"
   
   	@consumer = OAuth::Consumer.new("JVc8WRvkZwjLc3RNRFR8M40Xk","lje5gyYpBgEZRJ398PdY6eF3eN61oAzCF738RNTq1s56IyaXo6", :site => "https://api.twitter.com")
   
-    @request_token = @consumer.get_request_token(:oauth_callback => oauth_callback)
+    # @request_token = @consumer.get_request_token(:oauth_callback => oauth_callback)  #This was in the tutorial, but it doesn't work.
+    @request_token = @consumer.get_request_token(:oauth_callback => @callback_url)
   	session[:request_token] = @request_token
   
-  	redirect_to @request_token.authorize_url(:oauth_callback => oauth_callback)
+    # redirect_to @request_token.authorize_url(:oauth_callback => oauth_callback)  #This was in the tutorial, but it doesn't work.
+  	redirect_to @request_token.authorize_url(:oauth_callback => @callback_url)
+  	
   end
   
   def oauth_account
