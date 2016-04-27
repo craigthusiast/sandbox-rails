@@ -8,7 +8,16 @@
 </head>
 <body>
 
+<% flash.each do |name, msg| %>
+<%= content_tag(:div, msg, class: "alert alert-info") %>
+<% end %>
+
 <%= yield %>
+
+<% if current_user %>
+ <li><%= link_to current_user.email, "/users/edit" %></li>
+ <li><%= link_to "Sign out", "/users/sign_out", :method => "DELETE"  %></li>
+<% end %>
 
 </body>
 </html>

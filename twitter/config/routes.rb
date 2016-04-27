@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
-  root 'index#tweets'
+  devise_for :users
+  resources :twitter
+  root to: "twitter#index"
+  
+  # match '/twitter_profile' => "twitter#twitter_profile"
+  # match '/oauth_account' => "twitter#oauth_account"
+  # match '/twitter_oauth_url' => 'twitter#generate_twitter_oauth_url'
+  
+  get '/twitter_profile' => "twitter#twitter_profile"
+  get '/oauth_account' => "twitter#oauth_account"
+  get '/twitter_oauth_url' => 'twitter#generate_twitter_oauth_url'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
